@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         name: springboot-container
-        image: saiganeshtech/
+        image: saiganeshtech/springboot
         ports:
         - containerport: 8080
 
