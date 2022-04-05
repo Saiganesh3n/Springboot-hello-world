@@ -1,15 +1,12 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: ReplicationController
 metadata:
-  name: springboot-Deployment      
+  name: springboot-controller      
   namespace: spring-boot-ns
   labels:
     app: springboot-app 
 spec:
   replicas: 1
-  selector:
-    matchLabels:      
-      app: springboot-app
   template:
     metadata:
       name: springboot-pod
@@ -20,7 +17,8 @@ spec:
         name: springboot-container
         image: saiganeshtech/springboot
         ports:
-        - containerport: 8080
+          app: springboot-app       
+          containerPort: 8080
 
 ---
 
@@ -31,10 +29,12 @@ kind: Service
 metadata: 
   name: springboot-svs
   namespace: spring-boot-ns 
+  labels:
+    app: springboot-app
 spec:
   type: Nodeport
   ports:
   - port: 8080
-    targetport: 8080
+    targetPort: 8080
   selector:
   - app: springboot-app
