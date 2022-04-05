@@ -14,10 +14,10 @@ spec:
         app: springboot-app
     spec:
       containers:
-        name: springboot-container
+      - name: springboot-container
         image: saiganeshtech/springboot
         ports:
-          app: springboot-app       
+        - app: springboot-app       
           containerPort: 8080
 
 ---
@@ -32,9 +32,9 @@ metadata:
   labels:
     app: springboot-app
 spec:
-  type: Nodeport
+  type: NodePort
   ports:
   - port: 8080
     targetPort: 8080
   selector:
-  - app: springboot-app
+    app: springboot-app
