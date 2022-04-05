@@ -2,11 +2,14 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: springboot-Deployment      
-  namespace: spring-boot-ns 
+  namespace: spring-boot-ns
+  labels:
+    app: springboot-app 
 spec:
   replicas: 1
   selector:
-    app: springboot-app
+    matchLabels:      
+      app: springboot-app
   template:
     metadata:
       name: springboot-pod
@@ -33,5 +36,5 @@ spec:
   ports:
   - port: 8080
     targetport: 8080
-  selectors:
+  selector:
   - app: springboot-app
