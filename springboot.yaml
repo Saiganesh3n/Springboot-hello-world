@@ -4,20 +4,20 @@ metadata:
   name: springboot-controller
   namespace: spring-boot-ns  
   labels:
-    name: springboot-app
+    app: springboot-app
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        name: springboot-app
+        app: springboot-app
     spec:
       containers:
       - name: springboot-container
         image: saiganeshtech/springboot
         name: springboot-app
         ports:
-        - name: springboot-app        
+        - app: springboot-app        
           containerPort: 8080
 
 ---
