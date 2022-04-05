@@ -1,4 +1,4 @@
-apiversion: v1
+apiversion: apps/v1
 kind: Deployment
 metadata:
   name: springboot-Deployment      
