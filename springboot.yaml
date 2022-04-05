@@ -1,23 +1,23 @@
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: springboot-controller      
-  namespace: spring-boot-ns
+  name: springboot-controller
+  namespace: spring-boot-ns  
   labels:
-    app: springboot-app 
+    name: springboot-app
 spec:
   replicas: 1
   template:
     metadata:
-      name: springboot-pod
       labels:
-        app: springboot-app
+        name: springboot-app
     spec:
       containers:
       - name: springboot-container
         image: saiganeshtech/springboot
+        name: springboot-app
         ports:
-        - app: springboot-app       
+        - name: springboot-app        
           containerPort: 8080
 
 ---
@@ -26,9 +26,9 @@ spec:
 
 apiVersion: v1
 kind: Service
-metadata: 
-  name: springboot-svs
-  namespace: spring-boot-ns 
+metadata:
+  name: springboot-svc
+  namespace: spring-boot-ns  
   labels:
     app: springboot-app
 spec:
@@ -38,3 +38,4 @@ spec:
     targetPort: 8080
   selector:
     app: springboot-app
+
