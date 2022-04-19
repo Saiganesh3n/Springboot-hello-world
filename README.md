@@ -1,6 +1,6 @@
 # Spring Boot Hello World
 
-**A simple SpringBoot app to send hello world message to a user**
+**A simple SpringBoot application to send hello world message to a user**
 
 ## How to Run Application
 
